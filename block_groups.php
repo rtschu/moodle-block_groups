@@ -154,7 +154,7 @@ class block_groups extends block_base
             $groupstext = '';
             return $groupstext;
         }
-        $href = $CFG->wwwroot ."user/index.php?&id=" . $COURSE->id;
+        $href = $CFG->wwwroot ."/message/index.php?&user1=" . $USER->id ."&viewing=course_" . $COURSE->id;
         $groupstext = $renderer->get_membership_content($enrolledgroups, $href);
         return $groupstext;
     }

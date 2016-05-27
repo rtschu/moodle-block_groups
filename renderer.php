@@ -119,12 +119,13 @@ class block_groups_renderer extends plugin_renderer_base {
      * @params enrolledgroups
      * @return string
      */
-    public function get_membership_content($enrolledgroups) {
+    public function get_membership_content($enrolledgroups, $href) {
         global $OUTPUT;
         $membercontent = get_string('introduction', 'block_groups');
         foreach ($enrolledgroups as $g => $value) {
-            $enrolledgroups[$g] = $value . html_writer::img($OUTPUT->pix_url('t/message'), get_string('message', 'block_groups'),
-                    array('class' => "messagepic rightalign"));
+            $img = html_writer::img($OUTPUT->pix_url('t/message'), get_string('message', 'block_groups'),
+                array('class' => "messagepic rightalign"));
+            $enrolledgroups[$g] = $value . html_writer::link($href , $img);
         }
         $membercontent .= html_writer::alist($enrolledgroups);
         return html_writer::tag('div', $membercontent, array('class' => 'memberlist'));

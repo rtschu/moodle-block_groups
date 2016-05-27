@@ -130,7 +130,7 @@ class block_groups extends block_base
 
     private function block_groups_get_content_groupmembers() {
         // Records the current course.
-        global $COURSE, $DB, $PAGE;
+        global $COURSE, $DB, $PAGE, $CFG, $USER;
         // Initialises an array to save the enrolled groups.
         $enrolledgroups = array();
         // List renders all enrolled groups.
@@ -154,7 +154,8 @@ class block_groups extends block_base
             $groupstext = '';
             return $groupstext;
         }
-        $groupstext = $renderer->get_membership_content($enrolledgroups);
+        $href = $CFG->wwwroot ."user/index.php?&id=" . $COURSE->id;
+        $groupstext = $renderer->get_membership_content($enrolledgroups, $href);
         return $groupstext;
     }
     /**

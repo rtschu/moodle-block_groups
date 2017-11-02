@@ -40,3 +40,4 @@ $string['allgroupsinstate'] = 'All groups are already {$a}.';
 $string['groupschanged'] = 'All groups are {$a}.';
 $string['errortitle'] = 'Synchronization error';
 $string['errorbutton'] = 'OK';
+$string['changeall'] = 'Change all groups';
